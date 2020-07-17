@@ -15,6 +15,8 @@ Use is made of the [snapraid-runner](https://github.com/Chronial/snapraid-runner
 
 ## Usage
 
+
+### docker run
 ```
 docker create -d \
   -v /mnt:/mnt \
@@ -31,6 +33,10 @@ This container is configured using two files `snapraid.conf` and `snapraid-runne
 * `-v /config` - The location of the Snapraid and SnapRAID-runner configurations
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
+
+### docker-compose
+Simply run the `docker-compose up` in the folder.
+The configuration file delivered in the _config_ folder is an example. You can specify the location of your own by setting the _CONFIG\_FOLDER_ variable in the _.env_ file. 
 
 It is based on phusion-baseimage with ssh removed, for shell access whilst the container is running do `docker exec -it snapraid /bin/bash`.
 

@@ -1,0 +1,15 @@
+version: '3'
+networks:
+  internal:
+services:
+  snapraid:
+    container_name: snapraid
+    build: .
+    restart: always
+    environment:
+      - TZ=${TZ:-Europe/London}
+      - PGID=1001
+      - PUID=1001
+    volumes:
+      - ${CONFIG_ROOT:-./config}/snapraid:/config
+      - /mnt:/mnt
